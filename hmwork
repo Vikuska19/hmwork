@@ -1,0 +1,167 @@
+package org.example;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a1;
+        a1 = new int[]{2, 2, 1, 1, 2, 1, 2, 2, 1, 1};
+        for (int i = 1; i < a1.length; i++) {
+            if (a1[i] != 1) {
+                a1[i] = 1;
+            } else {
+                a1[i] = 2;
+            }
+        }
+        System.out.println("Ответ");
+        System.out.print(a1[0] + " ");
+        System.out.print(a1[1] + " ");
+        System.out.print(a1[2] + " ");
+        System.out.print(a1[3] + " ");
+        System.out.print(a1[4] + " ");
+        System.out.print(a1[5] + " ");
+        System.out.print(a1[6] + " ");
+        System.out.print(a1[7] + " ");
+        System.out.print(a1[8] + " ");
+        System.out.print(a1[9] + " ");
+
+        var a2 = new int[100];
+        for (int i = 0; i < a2.length; i++) {
+a2[i] = i + 1;
+        }
+        System.out.println("\n\n Ответ");
+        System.out.print(a1[0] + " ");
+        System.out.print(a1[1] + " ");
+        System.out.print(a1[2] + " ");
+        System.out.print(a1[3] + " ");
+        System.out.print(a1[4] + " ");
+        System.out.print(a1[5] + " ");
+        System.out.print(a1[6] + " ");
+        System.out.print(a1[7] + " ");
+        System.out.print(a1[8] + " ");
+        System.out.print(a1[9] + " ");
+    }
+}
+
+class Main2 {
+        public static void main(String[] args) {
+            int[] array;
+            array = new int[100];
+            for (int i = 0; i < array.length; i++) {
+                array[i] = i + 1;
+            }
+            System.out.println(" Массив");
+            for (int num : array) System.out.print(num + " ");
+        }
+    }
+
+    class Main3 {
+        public static void main(String[] args) {
+            int[] array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+            System.out.println("Массив");
+            for (int num : array) System.out.print(num + " ");
+            System.out.println("\n\n Массив2");
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] < 6) array[i] *= 2;
+                System.out.print(array[i] + " ");
+            }
+        }
+    }
+
+    class Main4 {
+        public static void main(String[] args) {
+            int n = 10;
+            int[][] matrix;
+            matrix = new int[n][n];
+
+            for (int i = 0; i < n; i++) {
+                matrix[i][i] = 1;
+                System.out.println("Заполнили");
+                i = 0;
+                while (i < n) {
+                    int j = 0;
+                    while (j < n) {
+                        System.out.print(matrix[i][j] + " ");
+                        j++;
+                    }
+                    System.out.println();
+                    i++;
+                }
+            }
+        }
+    }
+
+    class Main5 {
+    public static void main(String[] args) {
+        int len = 8;
+        int initialValue = 16;
+        int[] resultArray = createArray(len, initialValue);
+        System.out.println("Созданный массив:");
+        for (int i = 0; i < resultArray.length; i++) System.out.print(resultArray[i] + " ");
+    }
+    public static int[] createArray(int len, int initialValue) {
+        int[] array = new int[len];
+        for (int i = 0; i < len; i++) array[i] = initialValue;
+        return array;
+    }
+}
+
+ class Main6 {
+    public static void main(String[] args) {
+        int[] array = {1, 10, 2, 8, 20, 9};
+        int min = findMin(array);
+        int max = findMax(array);
+        System.out.println("Массив" + Arrays.toString(array));
+        System.out.println("Мин элемент: " + min);
+        System.out.println("Макс элемент: " + max);
+    }
+
+     public static int findMin() {
+         return findMin(null);
+     }
+
+     public static int findMin(int[] array) {
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+         int min1 = min;
+         return min1;
+    }
+
+    public static int findMax(int[] array) {
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+}
+
+ class Main7 {
+    public static void main(String[] args) {
+        int[] array1 = {2, 2, 2, 1, 2, 2, 10, 1};
+        int[] array2 = {1, 1, 1, 2, 1};
+
+        System.out.println("Array1: " + checkBalance(array1));
+        System.out.println("Array2: " + checkBalance(array2));
+    }
+
+    public static boolean checkBalance(int[] array) {
+        AtomicInteger totalSum = new AtomicInteger();
+        for (int num : array) totalSum.addAndGet(num);
+
+        int leftSum = 0;
+        for (var i = 0; i < array.length; i++) {
+            leftSum += array[i];
+            if (leftSum == totalSum.get() - leftSum) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
